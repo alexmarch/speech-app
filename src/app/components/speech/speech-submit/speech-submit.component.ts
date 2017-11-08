@@ -19,6 +19,6 @@ export class SpeechSubmitComponent implements OnInit {
   onSpeechSave(item: Speech) {
     SpeechApiService.speeches.push(item);
     SpeechApiService.update();
-    this.router.navigate(['/list']);
+    this.router.navigate(['/list'], { queryParams: { index: SpeechApiService.speeches.length - 1 } });
   }
 }

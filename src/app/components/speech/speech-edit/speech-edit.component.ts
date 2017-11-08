@@ -28,7 +28,13 @@ export class SpeechEditComponent implements OnInit {
   onSave() {
     this.onSpeechSave.emit(this.speech);
   }
-
+  isValidDate(value) {
+    if(value) {
+      let dateWrapper = new Date(value);
+      return !isNaN(dateWrapper.getDate());
+    } 
+    return true;
+  }
   sendSpeechToEmail(reply_to:string) {
     if( !reply_to || reply_to.trim() === '') {
       this.modalRef.close();

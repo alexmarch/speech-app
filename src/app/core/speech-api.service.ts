@@ -31,7 +31,22 @@ export class SpeechApiService {
   }
   search(query: string): Array<Speech> {
     let result: Array<Speech> = SpeechApiService.speeches.filter( item => {
-      return item.title.includes(query) || item.content.includes(query) || item.subject.includes(query)
+      let isTitle, isContent, isSubject;
+      if ( item ) {
+        if( item.title ) {
+          isTitle =  item.title.includes(query)
+        } 
+        if( item.content ) {
+          isContent = item.content.includes(query)
+        } 
+        if( item.subject ) {
+          isSubject = item.subject.includes(query)
+        }
+        return isTitle || isContent || isSubject;
+
+      } else {
+        return false;
+      }
     });
     return result;
   }

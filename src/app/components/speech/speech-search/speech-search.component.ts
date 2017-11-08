@@ -14,7 +14,9 @@ export class SpeechSearchComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  getIndex(speech: Speech): number {
+    return SpeechApiService.speeches.indexOf(speech);
+  }
   search() {
     this.result = this.api.search(this.seachQuery);
   }

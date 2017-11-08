@@ -25,7 +25,7 @@ import { SpeechListComponent } from './components/speech/speech-list/speech-list
     SpeechEditComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {useHash: true}),
     NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
